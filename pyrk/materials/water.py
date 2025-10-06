@@ -23,6 +23,8 @@ class WaterDensity():
         :param temp: the temperature
         :type temp: float.
         """
+        if temp.magnitude == 0:
+            temp = 900 * units.kelvin
         return self.steam_table.rho_pt(self.pressure, temp.magnitude) * units.kg / pow(units.meter, 3)
 
 class Water(LiquidMaterial):
